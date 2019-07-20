@@ -1,29 +1,77 @@
 window.onload = function(e) {
-
-    let items = document.querySelectorAll('.items .item');
-    let divPrice = document.querySelector('.value');
-
-    for (let i = 0; i < items.length; i++) {
-        items[i].onclick = function(){
-            this.classList.toggle('item-active');
-            calcPrice();
-        }
-    }
-
-    function calcPrice() {
     
-        let price = 0;
+    let btnPlus = document.querySelector('input[name=increase]');
+    let btnMinus = document.querySelector('input[name=decrease]');
+    let btnAsterisk = document.querySelector('input[name=multi]');
+    let btnSlash = document.querySelector('input[name=divide]');
+    let inp1 = document.querySelector('input[name=num1]');
+    let inp2 = document.querySelector('input[name=num2]');
+    let resBtn = document.querySelector('.res');
     
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].classList.contains('item-active')){
 
-                price += parseInt(items[i].getAttribute('data-price'));
-            }
-            
-            }
-            
-            divPrice.innerHTML = price;
+   /* btn.addEventListener('click', function(){
+
+        let res =(+(inp1.value)) + (+(inp2.value));
+
+        resBtn.innerHTML = res;
+        btn.disabled = 'true';
+
+        console.log(resBtn);
+
+    });
+
+    inp1.onchange  = function(){
+
+        btn.disabled = '';
     }
+    inp2.onchange  = function(){
+
+        btn.disabled = '';
+    }*/
+
+    btnPlus.addEventListener('click', function(){
+
+        let res =(+(inp1.value)) + (+(inp2.value));
+
+        resBtn.innerHTML = res;
+        btn.disabled = 'true';
+
+        console.log(resBtn);
+
+    });
+    btnMinus.addEventListener('click', function(){
+
+        let res =(+(inp1.value)) - (+(inp2.value));
+
+        resBtn.innerHTML = res;
+        btn.disabled = 'true';
+
+        console.log(resBtn);
+
+    });
+    btnAsterisk.addEventListener('click', function(){
+
+        let res =(+(inp1.value)) * (+(inp2.value));
+
+        resBtn.innerHTML = res;
+        btn.disabled = 'true';
+
+        console.log(resBtn);
+
+    });
+    btnSlash.addEventListener('click', function(){
+
+        let res =(+(inp1.value))/(+(inp2.value));
+
+        resBtn.innerHTML = res;
+        btn.disabled = 'true';
+
+        console.log(resBtn);
+
+    });
+
+
+
 
 }
 

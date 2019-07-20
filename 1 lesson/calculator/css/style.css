@@ -1,19 +1,4 @@
 html, body {
-    margin: 0;
+    margin: 40px;
 }
 
-.items {
-    display: flex;
-}
-
-.item {
-    width: 200px;
-    height: 200px;
-    background: #eee;
-    margin: 20px;
-    box-sizing: border-box;
-}
-
-.item-active{
-    border: 3px solid red; 
-}

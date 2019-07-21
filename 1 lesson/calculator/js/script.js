@@ -14,7 +14,7 @@ window.onload = function(e) {
         let res =(+(inp1.value)) + (+(inp2.value));
 
         resBtn.innerHTML = res;
-        btn.disabled = 'true';
+        this.disabled = 'true';
 
         console.log(resBtn);
 
@@ -34,7 +34,7 @@ window.onload = function(e) {
         let res =(+(inp1.value)) + (+(inp2.value));
 
         resBtn.innerHTML = res;
-        btn.disabled = 'true';
+        btn.disabled = true;
 
         console.log(resBtn);
 

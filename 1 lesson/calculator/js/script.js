@@ -38,7 +38,7 @@ window.onload = function(e) {
         btn.disabled = '';
     }*/
 
-    btnPlus.addEventListener('click', function () { 
+    /*btnPlus.addEventListener('click', function () { 
         calcForm ('+');
      });
     btnMinus.addEventListener('click', function () { 
@@ -49,7 +49,7 @@ window.onload = function(e) {
      });
     btnSlash.addEventListener('click', function () { 
         calcForm ('/');
-     });
+     });*/
 
     
     function calcForm (op){

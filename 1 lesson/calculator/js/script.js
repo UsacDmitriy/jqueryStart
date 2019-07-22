@@ -7,7 +7,16 @@ window.onload = function(e) {
     let inp1 = document.querySelector('input[name=num1]');
     let inp2 = document.querySelector('input[name=num2]');
     let resBtn = document.querySelector('.res');
-    
+    let buttons = document.querySelectorAll('input[type=button]');
+
+
+    for (let index = 0; index < buttons.length; index++) {
+        buttons[index].onclick = function(){
+            let op =this.getAttribute('data-op');
+            calcForm(op);
+        };
+        
+    }
 
    /* btn.addEventListener('click', function(){
 
@@ -29,49 +38,53 @@ window.onload = function(e) {
         btn.disabled = '';
     }*/
 
-    btnPlus.addEventListener('click', function(){
+    btnPlus.addEventListener('click', function () { 
+        calcForm ('+');
+     });
+    btnMinus.addEventListener('click', function () { 
+        calcForm ('-');
+     });
+    btnAsterisk.addEventListener('click', function () { 
+        calcForm ('*');
+     });
+    btnSlash.addEventListener('click', function () { 
+        calcForm ('/');
+     });
 
-        let res =(+(inp1.value)) + (+(inp2.value));
+    
+    function calcForm (op){
+        let a = parseInt(inp1.value),
+            b = parseInt(inp2. value);
+        let res;
 
-        resBtn.innerHTML = res;
-        btn.disabled = true;
+        switch (op) {
+            case '+':
+                res = a+b;
+                break;
+            case '-':
+                res = a - b;
+                break;
+            case '*':
+                res = a*b;
+                break;
+            case '/':
+                if (b != 0) {
+                    res = a/b;
+                }             
+                else {
+                    res = 'Нельзя делить на ноль';
+                } 
+                break;
+        
+            default:
+                break;
+        }
 
-        console.log(resBtn);
+        resBtn.innerHTML  = res;
 
-    });
-    btnMinus.addEventListener('click', function(){
+    }
 
-        let res =(+(inp1.value)) - (+(inp2.value));
-
-        resBtn.innerHTML = res;
-        btn.disabled = 'true';
-
-        console.log(resBtn);
-
-    });
-    btnAsterisk.addEventListener('click', function(){
-
-        let res =(+(inp1.value)) * (+(inp2.value));
-
-        resBtn.innerHTML = res;
-        btn.disabled = 'true';
-
-        console.log(resBtn);
-
-    });
-    btnSlash.addEventListener('click', function(){
-
-        let res =(+(inp1.value))/(+(inp2.value));
-
-        resBtn.innerHTML = res;
-        btn.disabled = 'true';
-
-        console.log(resBtn);
-
-    });
-
-
-
+   
 
 }
 

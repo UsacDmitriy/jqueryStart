@@ -22,7 +22,7 @@ window.onload = function(e) {
 
         let res =(+(inp1.value)) + (+(inp2.value));
 
-        resBtn.innerHTML = res;
+        resBtn.innerHTML =  res;
         this.disabled = 'true';
 
         console.log(resBtn);

@@ -1,5 +1,5 @@
 window.onload = function(e) {
-    
+    // получаем как объект
     let slider = new Slider({
         images: '.gallery-1 images',
         btnPrev: '.gallery-1 .buttons .prev',
@@ -12,6 +12,9 @@ window.onload = function(e) {
 
 
 function Slider(images){
+    
+    
+    
     this.images = images;
     let i = 0;
 

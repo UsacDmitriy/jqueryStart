@@ -1,28 +1,22 @@
 window.onload = function(e) {
     
-   let links = document.querySelectorAll('a[target=_blank]');
-   console.log(links);
+    let text = document.querySelector('input[type=text]'),
+        btn = document.querySelector('form');
 
-   for (let i = 0; i < links.length; i++) {
-       links[i].onclick = confirmAway;      
-   }
 
-   function confirmAway(){
-        if (!confirm('we do not garantee')){
-            return false;
-        }
+    console.log('Apeear event: ' + event.type + ' on element ' + event.target);
+
+    btn.onsubmit = function(event){
         
-   }
+        
+        if ((typeof(text.value)) === 'string' && (typeof(text.value)) != null && text.value != '' && text.value.length < 50){
+            alert('Messege sent!');
+        } else {
+            alert('Invalid data');
+            event.preventDefaultault();
+    
+        }
 
-   let images = document.querySelectorAll('.gallery img');
-
-   for (let i = 0; i < images.length; i++) {
-    images[i].onmousedown = stopMove;      
-    images[i].oncontextmenu = stopMove;      
-    }
-
-    function stopMove(){
-        return false;
     }
 
 }

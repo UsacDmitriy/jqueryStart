@@ -1,6 +1,15 @@
 let text = document.querySelector('#text');
+function printObject(object){
+    let res = '<ul>';
 
-console.log(text);
+    for (const i in object) {
+        res+= '<li><b>' + i + '</b>' + object[i] + '<li>';
+    }
+    res += '</ul>';
+    document.write(res);
+}
+
+printObject(text.style);
 
 text.onclick = function(){
     text.innerHTML = 'red';

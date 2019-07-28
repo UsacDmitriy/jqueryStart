@@ -13,8 +13,10 @@ window.onload = function(e) {
     }
     let images2 = document.querySelectorAll('.gallery-2 .photos img');
     let slider2 = new Slider(images2);
-    slider2.slideShow();
-    
+    //slider2.slideShow();
+    setInterval(function () {
+        slider.next();
+    }, 1000);
    
 }
 

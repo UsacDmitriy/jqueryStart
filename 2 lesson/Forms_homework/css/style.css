@@ -6,3 +6,6 @@ html, body {
     width: 300px;
 }
 
+.err{
+    outline: 1px solid red;
+}

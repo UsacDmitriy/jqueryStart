@@ -1,24 +1,26 @@
 window.onload = function(e) {
     
-    let text = document.querySelector('input[type=text]'),
+    let text = document.querySelectorAll('input[type=text]'),
         btn = document.querySelector('form');
 
+        console.log(text);
 
-    console.log('Apeear event: ' + event.type + ' on element ' + event.target);
-
-    btn.onsubmit = function(event){
-        
-        
-        if ((typeof(text.value)) === 'string' && (typeof(text.value)) != null && text.value != '' && text.value.length < 50){
-            alert('Messege sent!');
+    btn.onsubmit = function(event){    
+        let error = false;
+           
+       for (let i = 0; i < text.length; i++) {
+        if (text[i].value === ''){
+            text[i].classList.add('err');
+           error = true;
         } else {
-            alert('Invalid data');
-            event.preventDefaultault();
-    
-        }
-
+            text[i].classList.remove('err'); 
+        }         
+       }
+       
+       if (error){
+        event.preventDefault();
+       }
     }
-
 }
 
 

@@ -9,8 +9,6 @@ function ourJquery(elements){
     this.elements = elements;
 
     this.on = function(eventName, f){
-
-
         for (let i = 0; i < this.elements.length; i++) {
             this.elements[i].addEventListener(eventName, f);      
         }
@@ -20,6 +18,17 @@ function ourJquery(elements){
         for (let i = 0; i < this.elements.length; i++) {
             this.elements[i].classList.add(name);
             
+        }
+    }
+    this.removeClass = function(name){
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].classList.remove(name);       
+        }
+    }
+
+    this.set = function(f){
+        for (let i = 0; i < this.elements.length; i++) {
+            f.call(this);
         }
     }
 

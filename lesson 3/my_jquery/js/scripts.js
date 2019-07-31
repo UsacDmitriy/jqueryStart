@@ -53,6 +53,11 @@ window.onload = function(e) {
 
     console.log(jqInputs);
 
-    jqInputs.addClass('a');
+    jqInputs.addClass('a').addClass('b').addClass('c');
+
+    $('.items .item').html('1').addClass('tst').on('click', function(){
+        this.style.color = 'red';
+    });
+
 
 }

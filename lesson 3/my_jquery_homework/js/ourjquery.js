@@ -45,4 +45,38 @@ function ourJquery(elements){
         return this;
     }
 
+    this.removeClass = function(name){
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].classList.remove(name);       
+        }
+
+        return this;
+    }
+
+    this.fade = function()
+
+}
+
+
+function fade(elem, t, f){
+    let fps = 50,
+        time = t || 1000,
+        steps = time/fps,
+        op = 1,
+        d0 = op/steps;
+
+    let callback = f || function () {
+        this.style.display = 'none';
+    };
+
+    let timer = setInterval(() => {
+        op -= d0;
+        elem.style.opacity = op;
+        steps--;
+        if (steps === 0){
+            clearInterval(timer);
+            callback.call(elem);
+        }
+
+    }, (1000 / fps));
 }

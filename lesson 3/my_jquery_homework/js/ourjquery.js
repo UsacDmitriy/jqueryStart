@@ -53,10 +53,18 @@ function ourJquery(elements){
         return this;
     }
 
-    this.fade = function()
+    this.fade = function(t, f) {
+        for (let i = 0; i < this.elements.length; i++) {
+
+            this.elements[i].addEventListener('click', function(){
+                fade(this, t, f);
+            });    
+        }
+
+        return this;
+    }
 
 }
-
 
 function fade(elem, t, f){
     let fps = 50,

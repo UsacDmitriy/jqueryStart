@@ -45,14 +45,6 @@ function ourJquery(elements){
         return this;
     }
 
-    this.removeClass = function(name){
-        for (let i = 0; i < this.elements.length; i++) {
-            this.elements[i].classList.remove(name);       
-        }
-
-        return this;
-    }
-
     this.fade = function(t, f) {
         for (let i = 0; i < this.elements.length; i++) {
 
@@ -60,7 +52,6 @@ function ourJquery(elements){
                 fade(this, t, f);
             });    
         }
-
         return this;
     }
 

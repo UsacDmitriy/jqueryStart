@@ -57,6 +57,7 @@ function ourJquery(elements){
         for (let i = 0; i < this.elements.length; i++) {
 
             this.elements[i].addEventListener('click', function(){
+                console.log(this);
                 fade(this, t, f);
             });    
         }

@@ -3,6 +3,7 @@ function $(selector){
     return new ourJquery(elements);
 }
 
+/* Include fade and show method in my library */
 
 function ourJquery(elements){
 
@@ -44,4 +45,70 @@ function ourJquery(elements){
         return this;
     }
 
+    this.removeClass = function(name){
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].classList.remove(name);       
+        }
+
+        return this;
+    }
+
+    this.fade = function(t, f) {
+        for (let i = 0; i < this.elements.length; i++) {
+
+            this.elements[i].addEventListener('click', function(){
+                fade(this, t, f);
+            });    
+        }
+
+        return this;
+    }
+
+    this.hide = function(){
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].style.display = 'none';            
+        }
+
+        return this;
+    }
+
+    this.show = function(){
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].style.display = 'block';       
+        }
+
+        return this;
+    }
+
+    this.click = function(f) {
+        this.f = f;
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].addEventListener('click', f);    
+        }
+
+        return this;
+    }
+}
+
+function fade(elem, t, f){
+    let fps = 50,
+        time = t || 1000,
+        steps = time/fps,
+        op = 1,
+        d0 = op/steps;
+
+    let callback = f || function () {
+        this.style.display = 'none';
+    };
+
+    let timer = setInterval(() => {
+        op -= d0;
+        elem.style.opacity = op;
+        steps--;
+        if (steps === 0){
+            clearInterval(timer);
+            callback.call(elem);
+        }
+
+    }, (1000 / fps));
 }

@@ -1,5 +1,11 @@
 function $(selector){
-    let elements = document.querySelectorAll(selector);
+
+    let elements;
+    if (selector instanceof HTMLElement){
+        elements = [selector];
+    } else {
+        elements = document.querySelectorAll(selector);
+    }
     return new ourJquery(elements);
 }
 
@@ -49,7 +55,6 @@ function ourJquery(elements){
         for (let i = 0; i < this.elements.length; i++) {
             this.elements[i].classList.remove(name);       
         }
-
         return this;
     }
 
@@ -61,7 +66,6 @@ function ourJquery(elements){
                 fade(this, t, f);
             });    
         }
-
         return this;
     }
 
@@ -86,6 +90,5 @@ function fade(elem, t, f){
             clearInterval(timer);
             callback.call(elem);
         }
-
     }, (1000 / fps));
 }

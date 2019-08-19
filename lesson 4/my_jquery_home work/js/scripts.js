@@ -11,7 +11,10 @@
 
  $(function(){
     $('.question').on('click', function() { 
-        $(this).next().toggle();
+        $(this).next().slideToggle({
+            duration: 2000,
+            easing: 'swing'
+        });
         //$(this).nextAll('.answer').hide();
         $(this).parent().nextAll().children('.answer').hide();
         $(this).parent().prevAll().children('.answer').hide();

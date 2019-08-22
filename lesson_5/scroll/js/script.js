@@ -13,4 +13,20 @@ $(function () {
             scrollTop: h.offset().top - 70
         }, 700)
     });
+
+    var btn = $('.button');
+
+    $(window).on('scroll', function() {
+        console.log($(window).scrollTop());
+      if ($(window).scrollTop() > 400) {
+        btn.show();
+      } else {
+        btn.hide();
+      }
+    });
+  
+    btn.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '1300');
+    });
  })

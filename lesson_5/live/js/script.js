@@ -1,10 +1,11 @@
 $(function () {
 
-  $('form input[type="text"]').on('focus', function () {
+  $('.items').on('focus', 'input[type="text"]',  function () {
+    console.log(this);
     $(this).addClass('active');
   });
   
-  $('form input[type="text"]').on('blur', function () {
+  $('.items').on('blur', 'input[type="text"]', function () {
     $(this).removeClass('active');
   });
 
@@ -18,8 +19,8 @@ $(function () {
 
   });
 
-  $('*').on('click', function(e){
-    console.log(1);
+  $('body').on('click', function(e){
+    console.log(e.target);
   })
 
 });

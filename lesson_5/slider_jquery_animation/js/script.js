@@ -4,12 +4,28 @@ $(function () {
     let i = 0;
     let k = 0;
 
+    let isRun = false;
+
+    
+    
     $('.next').on('click', function () {
-        $(`.gallery-1 .photos img:eq(${i})`).animate( {
-            opacity: "0",
-            
-          }, 300);
-        /* $(`.gallery-1 .photos img:eq(${i})`).removeClass('showed'); */
+
+        if (isRun){
+            return;
+        }
+
+        isRun = true;
+
+        $(`.gallery-1 .photos img:eq(${i})`) .css({
+            left: 0,
+            top: 0,
+            right: 'auto',
+            bottom: 'auto'
+        })
+        .animate({
+            width: 0,
+        }, 200);
+ 
         
         i++;
         
@@ -17,26 +33,54 @@ $(function () {
             i = 0;
         }
 
-        $(`.gallery-1 .photos img:eq(${i})`).animate( {
-            opacity: "1",
-           
-          }, 300);
+        $(`.gallery-1 .photos img:eq(${i})`).css({
+            left: 'auto',
+            top: 'auto',
+            right: 0,
+            bottom: 0
+        })
+        .animate({
+            width: '100%'
+        }, 200, function () { 
+            isRun = false;
+         });
 
     });
     
     $('.prev').on('click', function () {
-        
-        $(`.gallery-1 .photos img:eq(${i})`).removeClass('showed');
-        $(`.gallery-1 .photos img:eq(${i})`).animate({
-            opacity: "hide",
-            height: "hide"
-          }, 300);
+
+        if (isRun){
+            return;
+        }
+        isRun = true;     
+  
+        $(`.gallery-1 .photos img:eq(${i})`)
+                .css({
+                    left: 0,
+                    top: 0,
+                    right: 'auto',
+                    bottom: 'auto'
+                })
+                .animate({
+                    width: 0,
+                }, 200);
         i--;
         if ( i < 0) {
             i = $(`.gallery-1 .photos img`).length - 1;
         }
         
-        $(`.gallery-1 .photos img:eq(${i})`).addClass('showed');
+        $(`.gallery-1 .photos img:eq(${i})`)
+            .css({
+                left: 'auto',
+                top: 'auto',
+                right: 0,
+                bottom: 0
+            })
+            .animate({
+                width: '100%'
+            }, 200, function () { 
+                isRun = false;
+             });
  
     });
 
@@ -49,7 +93,7 @@ $(function () {
         }
         $(`.gallery-2 .photos img:eq(${k})`).addClass('showed');
 
-     }, 1000);
+     }, 200);
 
 
 });

@@ -21,11 +21,10 @@ html, body, ul, li {
     position: absolute;
     left: 0;
     opacity: 0;
-    overflow: hidden;
     transition: opacity 1s;
 }
 
- .gallery .photos img.showed{
+.gallery .photos img.showed{
     opacity: 1;
-} 
+}
 

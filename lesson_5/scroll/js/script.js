@@ -16,14 +16,17 @@ $(function () {
 
     var btn = $('.button');
 
-    $(window).on('scroll', function() {
-        console.log($(window).scrollTop());
-      if ($(window).scrollTop() > 400) {
+    function scrollBtn() { 
+      if ($(this).scrollTop() > 400) {
         btn.show();
       } else {
         btn.hide();
       }
-    });
+     };
+
+    scrollBtn();
+
+    $(window).on('scroll', scrollBtn);
   
     btn.on('click', function(e) {
       e.preventDefault();

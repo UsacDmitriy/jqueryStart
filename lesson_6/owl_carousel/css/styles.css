@@ -1,0 +1,30 @@
+html, body{
+    margin: 30px;
+    background:#eee;
+}
+
+.faq .item{
+    margin: 20px 0;
+}
+
+.answer{ 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    color: red;
+    padding: 5px
+}
+
+.faq .item .ask{
+    box-shadow: 0 0 5px grey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 32px;
+    cursor: pointer;
+    
+}
+
+.faq .item .answer{
+    overflow: hidden;
+    background: #ff0;
+    padding: 0 15px;
+    
+}

@@ -10,7 +10,7 @@ class Matrix{
     for(let i =0; i < 400; i++){
       let div = document.createElement('div');
       this.elem.appendChild(div);
-      this.cells[i] = ''
+      this.cells[i] = '';
     }
   }
 
@@ -27,6 +27,7 @@ class Matrix{
 
   // пересчитать номер строки и номер столбца в i
   _calcNum(x, y){
-    return Math.floor(Math.random()*400);
+    
+    return ((y-1)*20 + (x - 1));
   }
 }

@@ -3,10 +3,12 @@ class Matrix{
   // Сделать матрицу MxN
   constructor(elem){
     this.elem = elem;
+    
     this.cells = [];
   }
 
   create(){
+    console.log((this.m)*(this.n));
     for(let i =0; i < 400; i++){
       let div = document.createElement('div');
       this.elem.appendChild(div);

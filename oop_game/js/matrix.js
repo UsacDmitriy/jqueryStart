@@ -1,19 +1,22 @@
 class Matrix{
 
   // Сделать матрицу MxN
-  constructor(elem){
+  constructor(elem, rows, cols){
     this.elem = elem;
-    
     this.cells = [];
+    this.rows = rows;
+    this.cols = cols;
   }
 
   create(){
     console.log((this.m)*(this.n));
-    for(let i =0; i < 400; i++){
+    for(let i =0; i < this.rows * this.cols; i++){
       let div = document.createElement('div');
       this.elem.appendChild(div);
       this.cells[i] = '';
     }
+
+    this.elem.style.width = (this.cols*20)+'px';
   }
 
   getCell(x, y){
@@ -30,6 +33,6 @@ class Matrix{
   // пересчитать номер строки и номер столбца в i
   _calcNum(x, y){
     
-    return ((y-1)*20 + (x - 1));
+    return ((y-1)*this.cols + (x - 1));
   }
 }

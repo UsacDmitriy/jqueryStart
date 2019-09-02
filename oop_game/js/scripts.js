@@ -1,10 +1,10 @@
 window.onload = function(){
   let elem = document.querySelector('.fields');
   
-  let matrix = new Matrix(elem);
+  let matrix = new Matrix(elem, 10, 10);
   matrix.create();
 
-  matrix.setCell(10, 7, 'fruit');
+  matrix.setCell(3, 3, 'fruit');
 
   let snake = new Snake(matrix, 5, 5, 'up');
 

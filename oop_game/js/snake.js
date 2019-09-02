@@ -31,4 +31,9 @@ class Snake{
     
     this.matrix.setCell(this.x, this.y, 'snake');
   }
+
+  _checkAlive(){
+    return this.x > 1 && this.x < this.matrix.cols &&
+          this.y > 1 && this.y < this.matrix.rows
+  }
 }

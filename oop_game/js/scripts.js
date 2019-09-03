@@ -1,7 +1,7 @@
 window.onload = function(){
   let elem = document.querySelector('.fields');
   
-  let matrix = new Matrix(elem, 10, 10);
+  let matrix = new Matrix(elem, 20, 20);
   matrix.create();
 
   matrix.setCell(3, 3, 'fruit');
@@ -34,7 +34,9 @@ window.onload = function(){
   
   let Timer = setInterval(() => {
     snake.move();
+    if (!snake.alive){
+      clearInterval(Timer);
+      alert("Game over");
+    }
   }, 500);
-
-  console.log(snake);
 }

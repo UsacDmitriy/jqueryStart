@@ -5,6 +5,7 @@ class Snake{
     this.x = x;
     this.y = y;
     this.course = course;
+    this.alive = true;
   }
 
   show(){
@@ -12,8 +13,14 @@ class Snake{
   }
 // поставить кейсы и проверить нажатие на клавиши
   move(){
+    if (!this.alive){
+      return;
+    }
 
-    this.matrix.setCell(this.x, this.y, '');
+    let lastX = this.x;
+    let lastY = this.y;
+
+    
     switch(this.course){
       case 'right':
         this.x++;
@@ -28,12 +35,18 @@ class Snake{
         this.y++;
         break;
     }
+    //this._checkAlive();
+    if (!this._checkAlive()){
+      this.alive = false;
+      return false;
+    }
     
+    this.matrix.setCell(lastX, lastY, '');
     this.matrix.setCell(this.x, this.y, 'snake');
   }
 
   _checkAlive(){
-    return this.x > 1 && this.x < this.matrix.cols &&
-          this.y > 1 && this.y < this.matrix.rows
+    return this.x >= 1 && this.x <= this.matrix.cols &&
+          this.y >= 1 && this.y <= this.matrix.rows
   }
 }

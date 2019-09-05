@@ -4,15 +4,16 @@ window.onload = function(){
   let matrix = new Matrix(elem, 20, 20);
   matrix.create();
 
-  matrix.setCell(3, 3, 'fruit');
+  (new Fruit(matrix, [[2, 2]])).show();
+  (new Wall(matrix, [[8, 2],[8, 3], [8, 4]])).show();
 
-  let snake = new Snake(matrix, 5, 5, 'up');
+  let snake = new Snake(matrix, [[5,5], [4, 5], [3, 5]], 'right');
 
   snake.show();
 
   document.addEventListener('keydown', (e) => {
-    console.log(e.keyCode);
     let key = e.keyCode;
+    /* 3) добавить защиту от смены курса */
     switch(key){
       case 37:
         snake.course = 'left';
@@ -31,7 +32,11 @@ window.onload = function(){
         break;  
     }
   });
-  
+/* 2)
+если покушала новый фрукт на рандомном поле + очки
+*/  
+
+
   let Timer = setInterval(() => {
     snake.move();
     if (!snake.alive){

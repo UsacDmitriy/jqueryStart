@@ -39,6 +39,9 @@ window.onload = function(){
 
   let Timer = setInterval(() => {
     snake.move();
+    if (!snake.hungry){
+      matrix.setRandomCell('fruit');
+    }
     if (!snake.alive){
       clearInterval(Timer);
       alert("Game over");

@@ -34,6 +34,13 @@ class Matrix{
     this.elem.children[num].setAttribute('data-game', val);
   }
 
+  setRandomCell(val){
+    let randomRow = Math.floor(Math.random() * this.rows + 1);
+    let randomCol = Math.floor(Math.random() * this.cols + 1);
+
+    this.setCell(randomRow, randomCol, val)
+  }
+
   _calcNum(x, y){
     
     return ((y-1)*this.cols + (x - 1));

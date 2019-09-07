@@ -5,14 +5,16 @@ class Snake extends Elem{
     this.value ='snake'
     this.course = course;
     this.alive = true;
+    this.hungry = true;
   }
 
   move(){
     if (!this.alive){
       return;
     }
-
+    this.hungry = true;
     let head = this.cords[0].slice();
+    console.log(head);
 
     
     switch(this.course){
@@ -41,11 +43,28 @@ class Snake extends Elem{
       змея - конец игры
 
     */
-    let tail = this.cords.pop();
-    this.matrix.setCell(tail[0], tail[1], '');
+    if (this.matrix.getCell(head[0],head[1]) === 'wall'){
+      this.alive = false;
+      return;
+    }
 
-    this.cords.unshift(head);
-    this.matrix.setCell(head[0], head[1], 'snake');
+    if (this.matrix.getCell(head[0],head[1]) === 'snake'){
+      this.alive = false;
+      return;
+    }
+
+    if (this.matrix.getCell(head[0],head[1]) === 'fruit'){
+      this.cords.unshift(head);
+      this.matrix.setCell(head[0], head[1], 'snake');
+      this.hungry = false;
+    } else {
+      let tail = this.cords.pop();
+      this.matrix.setCell(tail[0], tail[1], '');
+  
+      this.cords.unshift(head);
+      this.matrix.setCell(head[0], head[1], 'snake');
+
+    }
   }
 
   _checkAlive(head){

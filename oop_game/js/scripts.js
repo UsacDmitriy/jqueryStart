@@ -13,34 +13,39 @@ window.onload = function(){
 
   document.addEventListener('keydown', (e) => {
     let key = e.keyCode;
-    /* 3) добавить защиту от смены курса */
+  
     switch(key){
       case 37:
-        snake.course = 'left';
+        if (snake.course !== 'right'){
+           snake.newCourse = 'left';
+      }
         break;
       case 38:
-        snake.course = 'up';
+        if (snake.course !== 'down'){
+        snake.newCourse = 'up';
+      }
         break;
       case 39:
-        snake.course = 'right';
+        if  (snake.course !== 'left'){
+        snake.newCourse = 'right';
+      }
         break;
       case 40:
-        snake.course = 'down';
+        if  (snake.course !== 'up'){
+        snake.newCourse = 'down';
+      }
         break;
       case 96:
         clearInterval(Timer);
         break;  
     }
   });
-/* 2)
-если покушала новый фрукт на рандомном поле + очки
-*/  
-
-
+  
   let Timer = setInterval(() => {
     snake.move();
     if (!snake.hungry){
       matrix.setRandomCell('fruit');
+      this.document.querySelector('#score').value = snake.count;
     }
     if (!snake.alive){
       clearInterval(Timer);

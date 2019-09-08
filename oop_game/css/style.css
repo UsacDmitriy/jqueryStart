@@ -34,3 +34,7 @@ html, body{
 .fields > div[data-game="wall"]{
   background: black;
 }
+
+#score{
+  margin: 20px;
+}

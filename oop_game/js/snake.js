@@ -4,14 +4,18 @@ class Snake extends Elem{
     super(matrix, cords)
     this.value ='snake'
     this.course = course;
+    this.newCourse = course;
     this.alive = true;
     this.hungry = true;
+    this.count = 0;
   }
 
   move(){
     if (!this.alive){
       return;
     }
+    this.course = this.newCourse;
+    
     this.hungry = true;
     let head = this.cords[0].slice();
     console.log(head);
@@ -43,18 +47,17 @@ class Snake extends Elem{
       змея - конец игры
 
     */
-    if (this.matrix.getCell(head[0],head[1]) === 'wall'){
+    let find = this.matrix.getCell(head[0],head[1]);
+
+    if (find === 'wall' || find === 'snake'){
       this.alive = false;
       return;
     }
 
-    if (this.matrix.getCell(head[0],head[1]) === 'snake'){
-      this.alive = false;
-      return;
-    }
 
-    if (this.matrix.getCell(head[0],head[1]) === 'fruit'){
+    if (find === 'fruit'){
       this.cords.unshift(head);
+      this.count++;
       this.matrix.setCell(head[0], head[1], 'snake');
       this.hungry = false;
     } else {

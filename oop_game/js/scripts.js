@@ -51,5 +51,5 @@ window.onload = function(){
       clearInterval(Timer);
       alert("Game over");
     }
-  }, 500);
+  }, 300);
 }

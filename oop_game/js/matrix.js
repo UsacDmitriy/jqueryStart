@@ -38,6 +38,11 @@ class Matrix{
     let randomRow = Math.floor(Math.random() * this.rows + 1);
     let randomCol = Math.floor(Math.random() * this.cols + 1);
 
+    while (this.getCell(randomRow, randomCol !== '')) {
+      randomRow = Math.floor(Math.random() * this.rows + 1);
+      randomCol = Math.floor(Math.random() * this.cols + 1);
+    }
+
     this.setCell(randomRow, randomCol, val)
   }
 

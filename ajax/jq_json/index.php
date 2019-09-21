@@ -8,12 +8,17 @@
     </head>
     <body>
         <form class="app">
-            Имя<br><input type="text" name="name" class="check"><span class="error"></span><br>
-            Телефон<br><input type="text" name="phone" class="check"><span class="error"></span><br>
-            Почта<br><input type="text" name="email" class="check"><span class="error"></span><br>
-            <input type="button" value="Отправить" class="send">
+            Country <br>
+            <select name="country">
+                <option value="">Default</option>
+            </select> 
+            City
+            <select name="town" disabled>
+                <option value="">Default</option>
+            </select>
         </form>
-        <div class="result"></div>
+        <div class="loading">...</div>
+        <ul class="res"></ul>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/scripts.js"></script>
     </body>

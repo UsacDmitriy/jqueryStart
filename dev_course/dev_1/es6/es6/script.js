@@ -15,7 +15,7 @@ class Timer{
         this.start();
     }
 
-    tick(){
+    tick = () => {
         this.time--;
         this.render();
 
